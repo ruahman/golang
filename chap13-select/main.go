@@ -32,6 +32,7 @@ func simpleSelect() {
 		case i := <-ch1:
 			fmt.Println("ch1: ", i)
 		case i := <-ch2:
+
 			fmt.Println("ch2: ", i)
 		case <-exitCh:
 			return

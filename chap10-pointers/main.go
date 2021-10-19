@@ -17,6 +17,7 @@ func changeArray(a *[5]int){
   a[2] = 773
 }
 
+
 func changeArraySlice(a []int){
   a[3] = 878 
 }
