@@ -19,12 +19,8 @@ RUN go install github.com/go-delve/delve/cmd/dlv
 
 RUN go build -o app main.go
 
+ENTRYPOINT dlv debug --headless --log -l 0.0.0.0:2345 --api-version=2
 
-# ENTRYPOINT dlv debug --headless --log -l 0.0.0.0:2345 --api-version=2
-
-# COPY ./dlv.sh /go/src/work/
-# RUN chmod +x dlv.sh 
-# ENTRYPOINT [ "./dlv.sh"]
 
 ### production
 FROM alpine:3.9 as prod

@@ -20,4 +20,4 @@ shell:
 
 .PHONY: debug
 debug:
-	docker run -it -p 2345:2345 -v $(shell pwd):/go/src/work --rm --security-opt seccomp=unconfined golang-debug /bin/bash
+	docker run -it -p 2345:2345 -v $(shell pwd):/go/src/work --rm -d --security-opt seccomp=unconfined golang-debug /bin/bash
