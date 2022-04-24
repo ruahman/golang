@@ -21,7 +21,6 @@ RUN go build -o app main.go
 
 ENTRYPOINT dlv debug --headless --log -l 0.0.0.0:2345 --api-version=2
 
-
 ### production
 FROM alpine:3.9 as prod
 COPY --from=debug /go/src/work/app /
