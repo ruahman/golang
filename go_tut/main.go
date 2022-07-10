@@ -3,9 +3,10 @@ package main
 import (
 	"go_tut/custom_type"
 	"go_tut/functions"
+	"go_tut/loops"
 	"go_tut/slices"
+	"go_tut/structs"
 	"go_tut/variables"
-  "go_tut/loops"
 )
 
 func main() {
@@ -13,5 +14,6 @@ func main() {
 	functions.Demo()
 	custom_type.Demo()
 	slices.Demo()
-  loops.Demo()
+	loops.Demo()
+  structs.Demo()
 }
