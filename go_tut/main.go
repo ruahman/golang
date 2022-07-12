@@ -3,6 +3,7 @@ package main
 import (
 	"go_tut/custom_type"
 	"go_tut/functions"
+	"go_tut/interfaces"
 	"go_tut/loops"
 	"go_tut/maps"
 	"go_tut/slices"
@@ -18,4 +19,5 @@ func main() {
 	loops.Demo()
 	structs.Demo()
 	maps.Demo()
+  interfaces.Demo()
 }
