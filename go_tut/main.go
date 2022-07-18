@@ -1,6 +1,7 @@
 package main
 
 import (
+	"go_tut/arrays"
 	"go_tut/channels"
 	"go_tut/custom_type"
 	"go_tut/functions"
@@ -13,6 +14,7 @@ import (
 )
 
 func main() {
+	arrays.Demo()
 	variables.Demo()
 	functions.Demo()
 	custom_type.Demo()
@@ -21,5 +23,5 @@ func main() {
 	structs.Demo()
 	maps.Demo()
 	interfaces.Demo()
-  channels.Demo()
+	channels.Demo()
 }

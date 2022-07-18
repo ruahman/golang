@@ -103,7 +103,7 @@ func waitGroup() {
 		wg.Done()
 	}(chanel)
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 10; i++ {
 		chanel <- i
 	}
 

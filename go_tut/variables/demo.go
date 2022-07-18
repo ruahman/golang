@@ -5,15 +5,18 @@ import "fmt"
 var noPublica string // private
 var Publica string   // public
 
+const s string = "constant"
+
 func Demo() {
 	// var card string = "Ace of Spades"
 	card := "Ace of Spades"
 	card = "Five of Diamonds"
 
 	noPublica = "not public"
-  Publica = "public"
+	Publica = "public"
 
 	fmt.Println(card)
 	fmt.Println(noPublica, Publica)
 	fmt.Println("hello from variables package")
+	fmt.Println(s)
 }

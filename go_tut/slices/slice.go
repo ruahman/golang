@@ -8,7 +8,9 @@ func Demo() {
 	// when ever we create a slice an array is created
 	// in the background
 	cards := []string{"Ace of Diamonds", "Ace of Spades"}
-	cards = append(cards, "Six of Spades")
+	
+  // you can append slices
+  cards = append(cards, "Six of Spades")
 	cards = append(cards, "one", "two", "three")
 	fmt.Println(cards)
 
@@ -21,4 +23,7 @@ func Demo() {
 	}
 
 	fmt.Println("ranges: ", cards[2:5])
+
+	s := make([]string, 3)
+	fmt.Println(s, len(s))
 }
