@@ -6,12 +6,26 @@ func newCard() string {
 	return "Five of Diamonds"
 }
 
+// func sum(nums ...int) {
+// 	fmt.Println(nums, " ")
+// 	total := 0
+// 	for _, num := range nums {
+// 		total += num
+// 	}
+// 	fmt.Println(total)
+// }
+
 func multiple_return() (int, bool) {
 	return 123, false
 }
 
 func lastHi() {
 	fmt.Println("lastHi")
+}
+
+// multiple consecutive params
+func plusPlus(a, b, c int) int {
+	return a + b + c
 }
 
 func sum(nums ...int) {
@@ -79,6 +93,30 @@ func learnMultiple(x, y int) (sum, prod int) {
 	return x + y, x * y // Return two values.
 }
 
+// recursion
+func fact(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * fact(n-1)
+}
+
+func closureRecursion() {
+	fmt.Println(fact(5))
+
+	// if you want to make a clojure recursive
+	var fib func(n int) int
+
+	fib = func(n int) int {
+		if n < 2 {
+			return n
+		}
+		return fib(n-1) + fib(n-2)
+	}
+
+	fmt.Println(fib(7))
+}
+
 func Demo() {
 	fmt.Println("----- functions -----")
 
@@ -117,4 +155,8 @@ func Demo() {
 	fmt.Println(d("A lazy", "afternoon!"))
 
 	fmt.Println(learnMultiple(3, 4))
+
+	fmt.Println(plusPlus(1, 2, 3))
+  fact(7)
+  closureRecursion()
 }

@@ -9,7 +9,10 @@ import (
 	"go_tut/interfaces"
 	"go_tut/loops"
 	"go_tut/maps"
+	"go_tut/pointers"
+	"go_tut/ranges"
 	"go_tut/slices"
+	"go_tut/strings"
 	"go_tut/structs"
 	"go_tut/switches"
 	"go_tut/variables"
@@ -22,8 +25,11 @@ func main() {
 	conditions.Demo()
 	switches.Demo()
 	loops.Demo()
-	functions.Demo()
+	ranges.Demo()
+	pointers.Demo()
+	strings.Demo()
 	custom_type.Demo()
+	functions.Demo()
 	structs.Demo()
 	maps.Demo()
 	interfaces.Demo()
