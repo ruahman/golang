@@ -55,8 +55,6 @@ func (s Square) Perimeter() float64 {
 	return 2 * (s.side + s.side)
 }
 
-var s Shape
-
 func explain(i interface{}) {
 	switch i.(type) {
 	case string:
@@ -86,6 +84,7 @@ func Demo() {
 	printGreating(eb)
 	printGreating(sb)
 
+	var s Shape
 	s = Rect{width: 5.0, height: 4.0}
 	fmt.Println(s.Area(), s.Perimeter())
 

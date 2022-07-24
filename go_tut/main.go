@@ -6,6 +6,7 @@ import (
 	"go_tut/conditions"
 	"go_tut/custom_type"
 	"go_tut/functions"
+	"go_tut/generics"
 	"go_tut/interfaces"
 	"go_tut/loops"
 	"go_tut/maps"
@@ -16,6 +17,7 @@ import (
 	"go_tut/structs"
 	"go_tut/switches"
 	"go_tut/variables"
+  "go_tut/err"
 )
 
 func main() {
@@ -31,6 +33,8 @@ func main() {
 	custom_type.Demo()
 	functions.Demo()
 	structs.Demo()
+	generics.Demo()
+  err.Demo()
 	maps.Demo()
 	interfaces.Demo()
 	channels.Demo()
