@@ -3,7 +3,7 @@ package conditions
 import "fmt"
 
 func Demo() {
-  fmt.Println("----- conditions -----")
+	fmt.Println("----- conditions -----")
 	x := 20
 	y := 18
 	if x > y {
@@ -25,4 +25,23 @@ func Demo() {
 	} else {
 		fmt.Println("Good evening")
 	}
+
+	// asighn variable in if
+
+	if name, age := "alex", 26; name == "alex" {
+		fmt.Print(name, age)
+	} else {
+		fmt.Println("no name")
+	}
+
+	users := make(map[string]string)
+
+	users["diego"] = "dego_vila@yahoo.com"
+	users["andy"] = "abvila@gmail.com"
+
+	if email, ok := users["diego"]; ok == true {
+		fmt.Println("diego found", email)
+  } else {
+    fmt.Println("nothing")
+  }
 }

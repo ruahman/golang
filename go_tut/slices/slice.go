@@ -3,7 +3,7 @@ package slices
 import "fmt"
 
 func Demo() {
-	fmt.Println("slices demo...")
+	fmt.Println("------------ slices demo...")
 	// Arrays are fixed, while slices can grow
 	// when ever we create a slice an array is created
 	// in the background
@@ -49,4 +49,15 @@ func Demo() {
 	myslice5 := []int{4, 5, 6}
 	myslice7 := append(myslice4, myslice5...)
 	fmt.Println(myslice7)
+
+	// slices create an array in the background
+	// both of these slices are pointing to the same array
+	testSlice := []int{1, 2, 3, 4, 5}
+	testSlice2 := testSlice[:3]
+	testSlice2[0] = 666
+
+	fmt.Println(testSlice, testSlice2)
+
+	// lenght, capacity
+	fmt.Println(len(testSlice2), cap(testSlice2))
 }

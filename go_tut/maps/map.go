@@ -27,4 +27,11 @@ func Demo() {
 	fmt.Println(colors, colors3)
 
 	printMap(colors)
+
+	students := make(map[string][]int)
+
+	students["Diego"] = []int{13, 45, 67}
+	students["Alex"] = []int{34, 55, 66}
+
+  fmt.Println(students)
 }
