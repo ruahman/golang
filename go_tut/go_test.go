@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestAnything(t *testing.T) {
 
@@ -9,4 +12,5 @@ func TestAnything(t *testing.T) {
 	if foo != "bar" {
 		t.Errorf("this is an error")
 	}
+	fmt.Println("...It passed")
 }

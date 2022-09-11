@@ -8,6 +8,7 @@ import (
 	"go_tut/err"
 	"go_tut/functions"
 	"go_tut/generics"
+	"go_tut/goroutines"
 	"go_tut/interfaces"
 	"go_tut/loops"
 	"go_tut/maps"
@@ -37,5 +38,6 @@ func main() {
 	err.Demo()
 	maps.Demo()
 	interfaces.Demo()
-	channels.Demo()
+	goroutines.Demo()
+  channels.Demo()
 }

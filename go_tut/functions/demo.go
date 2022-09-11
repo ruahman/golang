@@ -117,13 +117,23 @@ func closureRecursion() {
 	fmt.Println(fib(7))
 }
 
+func PanicRecover() {
+	panic("I'm panicing")
+
+	defer func() {
+		if error := recover(); error != nil {
+			fmt.Println("caught the panic")
+		}
+	}()
+}
+
 func Demo() {
 	fmt.Println("----- functions -----")
 
 	card := newCard()
 	i, b := multiple_return()
 
-	// call this at the end
+	// call this at the end with top fuction is about to close
 	defer lastHi()
 
 	// push on defer stack
@@ -157,6 +167,14 @@ func Demo() {
 	fmt.Println(learnMultiple(3, 4))
 
 	fmt.Println(plusPlus(1, 2, 3))
-  fact(7)
-  closureRecursion()
+	fact(7)
+	closureRecursion()
+
+	myFunc := func() {
+		fmt.Println("anomous")
+	}
+
+	myFunc()
+
+  PanicRecover()
 }

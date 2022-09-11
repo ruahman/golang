@@ -1,13 +1,24 @@
+/***
+ * protoc --go_out=. *.proto
+ */
+
 package main
 
 import (
 	"fmt"
+	"go_grpc/chat"
+
 	"google.golang.org/grpc"
+
 	// "log"
 	"net"
 )
 
 func main() {
+
+	// test := chat.Person{}
+	// test.Age = 32
+	// test.Name = "diego"
 
 	fmt.Println("start grpc")
 	lis, err := net.Listen("tcp", ":9000")
@@ -18,7 +29,11 @@ func main() {
 
 	fmt.Println("port is okay")
 
+	s := chat.Server{}
+
 	grpcServer := grpc.NewServer()
+
+  chat.RegisterChatServiceServer(grpcServer, &s)
 
 	fmt.Println("can create grpc server")
 

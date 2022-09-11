@@ -32,6 +32,19 @@ func newPerson(name string) *person {
 	return &p
 }
 
+// inheritence from person
+type Employee struct {
+	person
+}
+
+func emp_func() {
+	e := Employee{}
+	e.firstName = "diego"
+	e.lastName = "vila"
+	e.age = 42
+	fmt.Println(e)
+}
+
 func Demo() {
 	fmt.Println("---- structs -----")
 
