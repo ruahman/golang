@@ -117,15 +117,15 @@ func closureRecursion() {
 	fmt.Println(fib(7))
 }
 
-func PanicRecover() {
-	panic("I'm panicing")
+// func PanicRecover() {
+// 	panic("I'm panicing")
 
-	defer func() {
-		if error := recover(); error != nil {
-			fmt.Println("caught the panic")
-		}
-	}()
-}
+// 	defer func() {
+// 		if error := recover(); error != nil {
+// 			fmt.Println("caught the panic")
+// 		}
+// 	}()
+// }
 
 func Demo() {
 	fmt.Println("----- functions -----")
@@ -176,5 +176,5 @@ func Demo() {
 
 	myFunc()
 
-  PanicRecover()
+  // PanicRecover()
 }

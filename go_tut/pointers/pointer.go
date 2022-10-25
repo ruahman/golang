@@ -11,6 +11,7 @@ func zeroptr(iptr *int) {
 }
 
 func Demo() {
+  fmt.Println("----- pointer demo -----")
 	i := 1
 	fmt.Println(i)
 

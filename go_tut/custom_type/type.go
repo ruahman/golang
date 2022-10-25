@@ -46,6 +46,7 @@ func (d deck) shuffle() {
 }
 
 func Demo() {
+  fmt.Println("***** custome type demo *****")
 	demo := deck{"one", "two", "three"}
 	fmt.Println("test")
 	fmt.Println(demo)

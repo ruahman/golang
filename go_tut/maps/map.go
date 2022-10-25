@@ -9,6 +9,7 @@ func printMap(c map[string]string) {
 }
 
 func Demo() {
+  fmt.Println("***** map demo *****")
 	colors := map[string]string{
 		"red":    "#FF0000",
 		"green":  "#FA0234",
@@ -23,7 +24,6 @@ func Demo() {
 
 	delete(colors3, "test")
 
-	fmt.Println("----- c ------")
 	fmt.Println(colors, colors3)
 
 	printMap(colors)

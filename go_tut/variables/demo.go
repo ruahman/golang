@@ -2,16 +2,23 @@ package variables
 
 import "fmt"
 
-var noPublica string // private
+// private variable
+var noPublica string 
+
+// Public variable
 var Publica string   // public
 
 const s string = "constant"
 
 func Demo() {
 	fmt.Println("----- variables -----")
-	// var card string = "Ace of Spades"
-	card := "Ace of Spades"
+  
+	var card string = "Ace of Spades"
 	card = "Five of Diamonds"
+  fmt.Println(card)
+
+  card2 := "Ace of Spades"
+  fmt.Println(card2)
 
 	noPublica = "not public"
 	Publica = "public"

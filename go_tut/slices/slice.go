@@ -3,7 +3,7 @@ package slices
 import "fmt"
 
 func Demo() {
-	fmt.Println("------------ slices demo...")
+	fmt.Println("------------ slices demo -------------------")
 	// Arrays are fixed, while slices can grow
 	// when ever we create a slice an array is created
 	// in the background
