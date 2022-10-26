@@ -1,6 +1,8 @@
 package functions
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func newCard() string {
 	return "Five of Diamonds"
@@ -28,6 +30,7 @@ func plusPlus(a, b, c int) int {
 	return a + b + c
 }
 
+// unlimited params
 func sum(nums ...int) {
 	fmt.Println(nums)
 	total := 0
@@ -117,6 +120,15 @@ func closureRecursion() {
 	fmt.Println(fib(7))
 }
 
+// variadic function can be called with any number of arguments.
+func sum2(nums ...int) int {
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+
 // func PanicRecover() {
 // 	panic("I'm panicing")
 
@@ -126,6 +138,15 @@ func closureRecursion() {
 // 		}
 // 	}()
 // }
+
+// // closures
+func intSeq() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
 
 func Demo() {
 	fmt.Println("----- functions -----")
@@ -176,5 +197,17 @@ func Demo() {
 
 	myFunc()
 
-  // PanicRecover()
+	fmt.Println("variadic sum", sum2(1, 2, 3, 4, 5))
+
+	// PanicRecover()
+
+	//// clojures
+	nextInt := intSeq()
+
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+
 }

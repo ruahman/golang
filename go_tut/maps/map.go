@@ -10,6 +10,7 @@ func printMap(c map[string]string) {
 
 func Demo() {
   fmt.Println("***** map demo *****")
+
 	colors := map[string]string{
 		"red":    "#FF0000",
 		"green":  "#FA0234",
@@ -32,6 +33,11 @@ func Demo() {
 
 	students["Diego"] = []int{13, 45, 67}
 	students["Alex"] = []int{34, 55, 66}
+
+  // tho optional second retrun value can be used to disamiguate between
+  // misssing keys and keys with zero values like 0 or ""
+  _, found := students["andy"]
+  fmt.Println("found: ", found);
 
   fmt.Println(students)
 }
