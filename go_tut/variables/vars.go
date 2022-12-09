@@ -3,30 +3,42 @@ package variables
 import "fmt"
 
 // private variable
-var noPublica string 
+var noPublica string
 
 // Public variable
-var Publica string   // public
+var Publica string // public
 
 const s string = "constant"
 
-func Demo() {
-	fmt.Println("----- variables -----")
-  
+type Variables struct {
+	card  string
+	card2 string
+	a     int
+	b     int
+	c     int
+	d     int
+}
+
+func variables() Variables {
+
 	var card string = "Ace of Spades"
-	card = "Five of Diamonds"
-  fmt.Println(card)
-
-  card2 := "Ace of Spades"
-  fmt.Println(card2)
-
-	noPublica = "not public"
-	Publica = "public"
+	card2 := "Five of Diamonds"
 
 	// multiple variable declaration
 	var a, b, c, d int = 1, 3, 5, 7
 
-	fmt.Println(a, b, c, d)
+	return Variables{
+		card,
+		card2,
+		a,
+		b,
+		c,
+		d,
+	}
+}
+
+func Demo() {
+	fmt.Println("variables: ", variables())
 
 	// variable declaration block
 	var (
@@ -37,7 +49,6 @@ func Demo() {
 
 	fmt.Println(a1, b2, c3)
 
-	fmt.Println(card)
 	fmt.Println(noPublica, Publica)
 	fmt.Println("hello from variables package")
 	fmt.Println(s)
