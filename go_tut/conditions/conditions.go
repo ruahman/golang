@@ -41,7 +41,7 @@ func Demo() {
 
 	if email, ok := users["diego"]; ok == true {
 		fmt.Println("diego found", email)
-  } else {
-    fmt.Println("nothing")
-  }
+	} else {
+		fmt.Println("nothing")
+	}
 }

@@ -1,3 +1,4 @@
+// this is the package that runs on the terminal
 package main
 
 import (
@@ -24,11 +25,13 @@ import (
 	// "go_tut/channels"
 	// "go_tut/err"
 	// "go_tut/goroutines"
+	"go_tut/io"
 	"go_tut/variables"
 )
 
 func main() {
 
+	io.Demo()
 	variables.Demo()
 	// conditions.Demo()
 	// arrays.Demo()
