@@ -4,7 +4,7 @@ package main
 import (
 	// "go_tut/arrays"
 	// "go_tut/channels"
-	// "go_tut/conditions"
+	"go_tut/conditions"
 	// "go_tut/custom_type"
 	// "go_tut/err"
 	// "go_tut/functions"
@@ -33,7 +33,7 @@ func main() {
 
 	io.Demo()
 	variables.Demo()
-	// conditions.Demo()
+	conditions.Demo()
 	// arrays.Demo()
 	// slices.Demo()
 	// loops.Demo()
