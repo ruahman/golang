@@ -5,6 +5,9 @@ import (
 	"strings"
 )
 
+// interfaces are data structures that are used to represent
+// a set of methods for a type of struct
+
 type bot interface {
 	getGreating() string
 }
@@ -84,6 +87,7 @@ func Demo() {
 	printGreating(eb)
 	printGreating(sb)
 
+	/ interface Shape
 	var s Shape
 	s = Rect{width: 5.0, height: 4.0}
 	fmt.Println(s.Area(), s.Perimeter())

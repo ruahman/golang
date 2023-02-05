@@ -11,7 +11,7 @@ func zeroptr(iptr *int) {
 }
 
 func Demo() {
-  fmt.Println("----- pointer demo -----")
+	fmt.Println("----- pointer demo -----")
 	i := 1
 	fmt.Println(i)
 
@@ -22,4 +22,11 @@ func Demo() {
 	fmt.Println(i)
 
 	fmt.Println(&i)
+
+	a := 5
+	b := &a
+	fmt.Println(a, b, *b)
+	*b = 10
+	fmt.Println(*b)
+
 }

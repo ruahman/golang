@@ -4,23 +4,17 @@ import (
 	"fmt"
 )
 
+// simple funtion with a return
 func newCard() string {
 	return "Five of Diamonds"
 }
 
-// func sum(nums ...int) {
-// 	fmt.Println(nums, " ")
-// 	total := 0
-// 	for _, num := range nums {
-// 		total += num
-// 	}
-// 	fmt.Println(total)
-// }
-
+// a function that returns multiple value, tuple
 func multiple_return() (int, bool) {
 	return 123, false
 }
 
+// function that returns nothing
 func lastHi() {
 	fmt.Println("lastHi")
 }
@@ -41,6 +35,7 @@ func sum(nums ...int) {
 	fmt.Println(total)
 }
 
+// return a closure/another function
 func closure() func() int {
 	i := 0
 	return func() int {
@@ -49,6 +44,7 @@ func closure() func() int {
 	}
 }
 
+// show how defer works
 func learnDefer() (ok bool) {
 	// A defer statement pushes a function call onto a list. The list of saved
 	// calls is executed AFTER the surrounding function returns.
@@ -71,6 +67,7 @@ func learnVariadicParams(myStrings ...interface{}) {
 
 }
 
+// show function factory pattern
 func learnFunctionFactory() {
 	fmt.Println(sentenceFactory("summer")("A beautiful", "day!"))
 
@@ -129,16 +126,6 @@ func sum2(nums ...int) int {
 	return total
 }
 
-// func PanicRecover() {
-// 	panic("I'm panicing")
-
-// 	defer func() {
-// 		if error := recover(); error != nil {
-// 			fmt.Println("caught the panic")
-// 		}
-// 	}()
-// }
-
 // // closures
 func intSeq() func() int {
 	i := 0
@@ -155,6 +142,7 @@ func Demo() {
 	i, b := multiple_return()
 
 	// call this at the end with top fuction is about to close
+	// defer this to the end
 	defer lastHi()
 
 	// push on defer stack
@@ -198,8 +186,6 @@ func Demo() {
 	myFunc()
 
 	fmt.Println("variadic sum", sum2(1, 2, 3, 4, 5))
-
-	// PanicRecover()
 
 	//// clojures
 	nextInt := intSeq()

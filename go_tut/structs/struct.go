@@ -7,7 +7,7 @@ type contactInfo struct {
 	zipCode int
 }
 
-type person struct {
+type Person struct {
 	firstName string
 	lastName  string
 	age       int
@@ -15,26 +15,28 @@ type person struct {
 	contactInfo
 }
 
+// value receivers
 // pass person by value, make no changes to struct
-func (p person) print() {
+func (p Person) print() {
 	fmt.Printf("%+v", p)
 }
 
+// pointer receivers
 // pass by ref, can change struct
-func (ptr *person) updateName(newFirstName string) {
+func (ptr *Person) updateName(newFirstName string) {
 	(*ptr).firstName = newFirstName
 }
 
 // return a pointer
-func newPerson(name string) *person {
-	p := person{firstName: name}
+func newPerson(name string) *Person {
+	p := Person{firstName: name}
 	p.age = 42
 	return &p
 }
 
 // inheritence from person
 type Employee struct {
-	person
+	Person
 }
 
 func emp_func() {
@@ -53,12 +55,12 @@ func Demo() {
 
 	// fmt.Println(alex, diego)
 
-	var alex2 person
+	var alex2 Person
 	alex2.firstName = "andy"
 	alex2.lastName = "vila"
 	fmt.Printf("%+v", alex2)
 
-	jim := person{
+	jim := Person{
 		firstName: "Jim",
 		lastName:  "Party",
 		contactInfo: contactInfo{

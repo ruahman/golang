@@ -12,4 +12,10 @@ func Demo() {
 	for i, runeVal := range rStr {
 		fmt.Printf("%d : %#U : %c\n", i, runeVal, runeVal)
 	}
+
+	aStr := "efghijk"
+	rArr := []rune(aStr)
+	for _, x := range rArr {
+		fmt.Println(x)
+	}
 }
