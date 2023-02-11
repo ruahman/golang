@@ -9,3 +9,7 @@ func TestHelloWorld(t *testing.T) {
 func TestValues(t *testing.T) {
 	Values()
 }
+
+func TestVariables(t *testing.T) {
+	Variables()
+}
