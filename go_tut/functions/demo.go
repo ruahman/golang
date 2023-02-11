@@ -135,6 +135,19 @@ func intSeq() func() int {
 	}
 }
 
+// you can name the return
+func myFunction(x int, y int) (result int) {
+	result = x + y
+	return
+}
+
+// multiple named return values
+func myFunction2(x int, y string) (result int, txt1 string) {
+	result = x + x
+	txt1 = y + " World!"
+	return
+}
+
 func Demo() {
 	fmt.Println("----- functions -----")
 
