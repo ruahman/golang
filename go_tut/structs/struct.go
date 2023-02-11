@@ -2,6 +2,7 @@ package structs
 
 import "fmt"
 
+// go doesn't have inheretance but it does have composition
 type contactInfo struct {
 	email   string
 	zipCode int

@@ -14,7 +14,7 @@ import (
 	// "go_tut/custom_type"
 	// "go_tut/err"
 	"go_tut/functions"
-	// "go_tut/generics"
+	"go_tut/generics"
 	"go_tut/goroutines"
 	"go_tut/interfaces"
 	"go_tut/loops"
@@ -29,6 +29,7 @@ import (
 	// "go_tut/err"
 	"go_tut/go_by_example"
 	"go_tut/io"
+	"go_tut/mutex"
 	"go_tut/runes"
 	"go_tut/variables"
 )
@@ -51,10 +52,11 @@ func main() {
 	interfaces.Demo()
 	maps.Demo()
 	pointers.Demo()
-	// generics.Demo()
+	generics.Demo()
 	// err.Demo()
 	goroutines.Demo()
 	channels.Demo()
+	mutex.Demo()
 	runes.Demo()
 
 	go_by_example.HelloWorld()

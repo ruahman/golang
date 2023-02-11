@@ -19,6 +19,7 @@ func checkLink(link string, c chan string) {
 	c <- link
 }
 
+// simple channel example.
 func simple() {
 	// unbuffer chanel
 	chanel := make(chan int)
@@ -29,6 +30,7 @@ func simple() {
 	}()
 
 	fmt.Println("wait for chanel to get a value")
+	// wait till channel returns something
 	x := <-chanel
 	fmt.Println("got data from chanel: ", x)
 }
