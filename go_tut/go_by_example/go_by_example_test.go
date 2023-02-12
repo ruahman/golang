@@ -13,3 +13,7 @@ func TestValues(t *testing.T) {
 func TestVariables(t *testing.T) {
 	Variables()
 }
+
+func TestConstants(t *testing.T) {
+	Constants()
+}

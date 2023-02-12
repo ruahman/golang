@@ -27,6 +27,7 @@ import (
 	"go_tut/structs"
 	"go_tut/switches"
 	// "go_tut/err"
+	"go_tut/constants"
 	"go_tut/go_by_example"
 	"go_tut/io"
 	"go_tut/mutex"
@@ -58,6 +59,7 @@ func main() {
 	channels.Demo()
 	mutex.Demo()
 	runes.Demo()
+	constanats.Demo()
 
 	go_by_example.HelloWorld()
 }
