@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-// run "go test -v -run TestDemo ./sub_package"
+// run "go test -v ./slices"
 func TestDemo(t *testing.T) {
 	Demo()
 }

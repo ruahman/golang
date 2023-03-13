@@ -8,6 +8,8 @@ func Demo() {
 	// when ever we create a slice an array is created
 	// in the background
 	// slices can grow and shrink as you see fit.
+  // Giving a more powerful interface to sequences than arrays.
+
 
 	cards := []string{"Ace of Diamonds", "Ace of Spades"}
 
@@ -29,10 +31,7 @@ func Demo() {
 
 	fmt.Println("ranges: ", cards[2:5])
 
-	s := make([]string, 3)
-	fmt.Println(s, len(s))
-
-	arr1 := [6]int{10, 11, 12, 13, 14, 15}
+		arr1 := [6]int{10, 11, 12, 13, 14, 15}
 	myslicex := arr1[2:4]
 	fmt.Println(myslicex)
 
@@ -60,4 +59,37 @@ func Demo() {
 
 	// lenght, capacity
 	fmt.Println(len(testSlice2), cap(testSlice2))
+
+  s := make([]string, 3)
+	fmt.Println(s, len(s))
+
+  s[0] = "a"
+  s[1] = "b"
+  s[2] = "c"
+  fmt.Println("set:", s)
+  fmt.Println("get:", s[2])
+
+  fmt.Println("len:", len(s))
+
+  s = append(s, "d")
+  s = append(s, "e", "f")
+  fmt.Println("apd:", s)
+
+  c := make([]string, len(s))
+  copy(c, s)
+  fmt.Println("cpy:", c)
+
+  l := s[2:5]
+  fmt.Println("sl1:", l)
+
+  l = s[:5]
+  fmt.Println("sl2:", l)
+
+  l = s[2:]
+  fmt.Println("sl3:", l)
+
+  t := []string{"g", "h", "i"}
+  fmt.Println("dcl:", t)
+  
+
 }
