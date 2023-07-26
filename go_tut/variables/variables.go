@@ -14,17 +14,19 @@ var Publica string = "Publica"
 const s string = "constant"
 
 // if you want to declare a variable outside a function you need to use var
-var xx int = 1
-var yy int = 3
-var zz int = 66
+var (
+	xx int = 1
+	yy int = 3
+	zz int = 66
+)
 
-func Variables() {
+func Exec() {
 	fmt.Println(xx, yy, zz)
 	fmt.Println(s)
 	fmt.Println(noPublica)
 
 	var student1 string = "John"
-	var student2 = "Jane"
+	student2 := "Jane"
 	x := 2
 	fmt.Println(student1, student2, x)
 
@@ -49,7 +51,7 @@ func Variables() {
 	fmt.Println(a1, b2, c3, d4)
 
 	// different types in same declaration
-	var a5, b6 = 6, "hello"
+	a5, b6 := 6, "hello"
 	c7, d8 := 7, "world"
 	fmt.Println(a5, b6, c7, d8)
 
