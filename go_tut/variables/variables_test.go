@@ -6,5 +6,5 @@ import (
 
 // run "go test -v -run TestDemo ./variables"
 func TestDemo(t *testing.T) {
-	Variables()
+	Exec()
 }
