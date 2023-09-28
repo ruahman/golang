@@ -5,6 +5,8 @@ import (
 	"reflect"
 )
 
+// outside function have to start with var
+
 // private variable
 var noPublica string = "noPublica"
 
@@ -20,7 +22,7 @@ var (
 	zz int = 66
 )
 
-func Exec() {
+func Run() {
 	fmt.Println(xx, yy, zz)
 	fmt.Println(s)
 	fmt.Println(noPublica)
