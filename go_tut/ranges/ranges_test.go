@@ -1,6 +1,8 @@
-package conditions
+package ranges
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestDemo(t *testing.T) {
 	Run()

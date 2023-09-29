@@ -1,5 +1,7 @@
 package maps
 
+// maps are just key maps of values
+
 import "fmt"
 
 func printMap(c map[string]string) {
@@ -44,5 +46,26 @@ func Demo() {
 
 	for k, v := range students {
 		fmt.Println(k, v)
+	}
+
+	type Vertex struct {
+		Lat, Long float64
+	}
+
+	m := map[string]Vertex{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google":    {37.42202, -122.08408},
+	}
+	fmt.Println(m)
+	if x, ok := m["Google"]; ok {
+		fmt.Println(x)
+	}
+	if y, ok := m["Bell Labs"]; ok {
+		fmt.Println(y)
+	}
+	if z, ok := m["Apple"]; ok {
+		fmt.Println(z)
+	} else {
+		fmt.Println("Apple not found")
 	}
 }

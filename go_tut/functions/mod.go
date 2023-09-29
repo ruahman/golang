@@ -46,6 +46,7 @@ func closure() func() int {
 
 // show how defer works
 func learnDefer() (ok bool) {
+	// defer delays the execution of a function until the surrounding function returns.
 	// A defer statement pushes a function call onto a list. The list of saved
 	// calls is executed AFTER the surrounding function returns.
 	defer fmt.Println("deferred statements execute in reverse (LIFO) order.")
@@ -64,7 +65,6 @@ func learnVariadicParams(myStrings ...interface{}) {
 
 	// Pass variadic value as a variadic parameter.
 	fmt.Println("params:", fmt.Sprintln(myStrings...))
-
 }
 
 // show function factory pattern
@@ -208,5 +208,4 @@ func Demo() {
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
-
 }

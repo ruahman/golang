@@ -2,7 +2,7 @@ package conditions
 
 import "fmt"
 
-func Demo() {
+func Run() {
 	fmt.Println("----- conditions -----")
 	x := 20
 	y := 18

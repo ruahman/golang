@@ -26,7 +26,7 @@ func main() {
 		},
 		Action: func(ctx *cli.Context) error {
 			if ctx.Bool("variables") {
-				variables.Exec()
+				variables.Run()
 			} else if ctx.Bool("help") {
 				cli.ShowAppHelp(ctx)
 			} else if ctx.Bool("cli") {

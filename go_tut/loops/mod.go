@@ -2,7 +2,7 @@ package loops
 
 import "fmt"
 
-func Demo() {
+func Run() {
 	fmt.Println("---- loops demo -----")
 	sum := 0
 	for i := 1; i < 5; i++ {
@@ -31,5 +31,4 @@ func Demo() {
 	for idx, val := range fruits {
 		fmt.Println(idx, val)
 	}
-
 }

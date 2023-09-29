@@ -15,9 +15,11 @@ func Demo() {
 	i := 1
 	fmt.Println(i)
 
+	// doen't change i
 	zeroval(i)
 	fmt.Println(i)
 
+	// changes i
 	zeroptr(&i)
 	fmt.Println(i)
 
@@ -29,4 +31,9 @@ func Demo() {
 	*b = 10
 	fmt.Println(*b)
 
+	// a pointer holds the memory address of a value
+	var p *int
+	c := 42
+	p = &c
+	fmt.Println(p, *p)
 }

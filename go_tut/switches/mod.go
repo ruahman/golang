@@ -1,6 +1,9 @@
 package switches
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func Demo() {
 	fmt.Println("----- switches -----")
@@ -43,4 +46,14 @@ func Demo() {
 	whatAmI(1)
 	whatAmI("hey")
 
+	// switches can be used without an expression
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
 }

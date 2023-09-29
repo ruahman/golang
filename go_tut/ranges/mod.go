@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func Demo() {
+func Run() {
 	fmt.Println("----- range ----")
 	nums := []int{2, 3, 4}
 	sum := 0

@@ -2,6 +2,8 @@ package structs
 
 import "fmt"
 
+// struct is a collection of fields
+
 // go doesn't have inheretance but it does have composition
 type contactInfo struct {
 	email   string
@@ -85,4 +87,15 @@ func Demo() {
 
 	test := newPerson("andy")
 	fmt.Println(test)
+
+	// struct pointer
+	type Vertex struct {
+		X int
+		Y int
+	}
+
+	v := Vertex{1, 2}
+	p := &v
+	p.X = 1e9 // this is fine even though p is a pointer
+	fmt.Println(v)
 }
