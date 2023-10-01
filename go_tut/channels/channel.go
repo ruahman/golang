@@ -49,7 +49,6 @@ func buffered() {
 
 	fmt.Println(<-chanel2)
 	fmt.Println(<-chanel2)
-
 }
 
 func rangeChan() {
@@ -65,6 +64,8 @@ func rangeChan() {
 	}()
 
 	// loop until chanel close
+	// v, ok := <-ch, ok is false if chanel is closed
+	// this is how the loop knows when to stop
 	for val := range chanel {
 		fmt.Println(val)
 	}
@@ -81,7 +82,6 @@ func closingChanel() {
 	val, ok := <-chanel
 
 	fmt.Println(val, ok)
-
 }
 
 func waitGroup() {
@@ -115,6 +115,20 @@ func waitGroup() {
 	// wait till wg.Done is called 2 times
 	wg.Wait()
 	fmt.Println("done waiting")
+}
+
+func fibonacci(c, quit chan int) {
+	x, y := 0, 1
+	for {
+		// select mulitle channels
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
 }
 
 func Demo() {
@@ -161,4 +175,13 @@ func Demo() {
 		}(l)
 	}
 
+	con := make(chan int)
+	quit := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+	fibonacci(con, quit)
 }

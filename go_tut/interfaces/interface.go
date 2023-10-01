@@ -2,6 +2,7 @@ package interfaces
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -78,6 +79,36 @@ func explain2(i interface{}) {
 	}
 }
 
+type Abser interface {
+	Abs() float64
+}
+
+// both these type impment the Abser interface
+type MyFloat float64
+
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+// empty interfaces
+// interface{} is the empty interface, and it defines no methods.
+// An empty interface may hold values of any type. (Every type implements at least zero methods.)
+// Empty interfaces are used by code that handles values of unknown type.
+func describe(i interface{}) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
 func Demo() {
 	fmt.Println("----- interfaces -----")
 
@@ -100,4 +131,21 @@ func Demo() {
 
 	explain2("hello world2")
 	explain2(27)
+
+	var a Abser
+	f := MyFloat(-math.Sqrt2)
+	v := Vertex{3, 4}
+
+	a = f // a MyFloat implements Abser
+	fmt.Println(a.Abs())
+
+	a = v // a Vertex implements Abser
+	fmt.Println(a.Abs())
+
+	var i interface{}
+	describe(i)
+	i = 42
+	describe(i)
+	i = "hello"
+	describe(i)
 }
