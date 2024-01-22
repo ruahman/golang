@@ -1,13 +1,19 @@
-
+.PHONY: build
 build:
-	go build .
+	@echo "Building..."
+	go build 
 
+.PHONY: run
 run:
-	go run .
+	echo "Running..."
+	go run main.go
 
+.PHONY: test
 test:
-ifdef package
-	go test -v ./$(package)
+ifdef test 
+	@echo "...Testing $(test)"
+	go test -v ./$(test)
 else
+	@echo "...Testing"
 	go test -v .
 endif
