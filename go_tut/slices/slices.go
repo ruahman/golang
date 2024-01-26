@@ -5,8 +5,12 @@ import "fmt"
 func Demo() {
 	fmt.Println("------------ slices demo -------------------")
 	// Arrays are fixed, while slices can grow
+
+	// slices are like dynamic arrays
+
 	// when ever we create a slice an array is created
 	// in the background
+
 	// slices can grow and shrink as you see fit.
 	// Giving a more powerful interface to sequences than arrays.
 
@@ -14,14 +18,13 @@ func Demo() {
 
 	cards := []string{"Ace of Diamonds", "Ace of Spades"}
 
-	myslice := []int{1, 2, 3}
-	fmt.Println(myslice)
-
 	// you can append slices
 	cards = append(cards, "Six of Spades")
+	// this does not modify the original slice but returns a new one
 	cards = append(cards, "one", "two", "three")
 	fmt.Println(cards)
 
+	// returns index and value of the slice
 	for idx, card := range cards {
 		fmt.Println(idx, card)
 	}

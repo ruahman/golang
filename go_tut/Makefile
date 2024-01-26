@@ -5,14 +5,14 @@ build:
 
 .PHONY: run
 run:
-	echo "Running..."
+	@echo "Running..."
 	go run main.go
 
 .PHONY: test
 test:
-ifdef test 
-	@echo "...Testing $(test)"
-	go test -v ./$(test)
+ifdef t 
+	@echo "...Testing $(t)"
+	go test -v ./$(t)
 else
 	@echo "...Testing"
 	go test -v .
