@@ -1,6 +1,9 @@
 package types
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type deck []string
 
@@ -23,6 +26,10 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
+}
+
 // receiver function???
 // by convention, the receiver is a one or two letter abbreviation of the type
 func (d deck) print() {
@@ -39,4 +46,7 @@ func Demo() {
 	hand.print()
 	fmt.Println("Remaining Cards:")
 	remainingCards.print()
+
+	fmt.Println("Deck as string:")
+	fmt.Println(cards.toString())
 }
