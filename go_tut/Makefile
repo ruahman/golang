@@ -10,9 +10,14 @@ run:
 
 .PHONY: test
 test:
+ifdef p 
 ifdef t 
+	@echo "...Testing $(p) $(t)"
+	go test -v ./$(p) -run $(t)
+else
 	@echo "...Testing $(t)"
-	go test -v ./$(t)
+	go test -v ./$(p) 
+endif
 else
 	@echo "...Testing"
 	go test -v .

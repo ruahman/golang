@@ -2,7 +2,11 @@ package types
 
 import (
 	"fmt"
+	"io/ioutil"
+	"math/rand"
+	"os"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -30,6 +34,33 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
+func (d deck) saveToFile(fileName string) error {
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(fileName string) deck {
+	// bs = byte slice, err = error
+	bs, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
+}
+
+func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1)
+
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+}
+
 // receiver function???
 // by convention, the receiver is a one or two letter abbreviation of the type
 func (d deck) print() {
@@ -49,4 +80,14 @@ func Demo() {
 
 	fmt.Println("Deck as string:")
 	fmt.Println(cards.toString())
+
+	fmt.Println("Saving deck to file...")
+	_ = cards.saveToFile("my_cards.txt")
+
+	fmt.Println("Reading deck from file...")
+	cardsFromFile := newDeckFromFile("my_cards.txt")
+	cardsFromFile.print()
+
+	cards.shuffle()
+	cards.print()
 }
