@@ -10,6 +10,7 @@ type contactInfo struct {
 	zipCode int
 }
 
+// order of fields matters, if we want to declare a struct without passing field names.
 type Person struct {
 	firstName string
 	lastName  string
@@ -53,7 +54,18 @@ func emp_func() {
 func Demo() {
 	fmt.Println("---- structs -----")
 
-	// alex := person{"alex", "lopez"}
+	// with fields
+	alexWithFields := Person{
+		firstName:   "alex",
+		lastName:    "lopez",
+		contactInfo: contactInfo{email: "de@y.com", zipCode: 50506},
+	}
+	fmt.Println(alexWithFields)
+
+	// without fields
+	alex := Person{"alex", "lopez", 33, contactInfo{"dego@yahoo.com", 60647}}
+	fmt.Println(alex)
+
 	// diego := person{firstName: "diego", lastName: "vila"}
 
 	// fmt.Println(alex, diego)
