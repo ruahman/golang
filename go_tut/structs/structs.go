@@ -26,9 +26,11 @@ func (p Person) print() {
 }
 
 // pointer receivers
+// go is a pass by value language, so we need to use pointers to change values
+// go will automatically convert the person to a pointer if it sees a pointer receiver
 // pass by ref, can change struct
-func (ptr *Person) updateName(newFirstName string) {
-	(*ptr).firstName = newFirstName
+func (p *Person) updateName(newFirstName string) {
+	(*p).firstName = newFirstName
 }
 
 // return a pointer
@@ -92,8 +94,10 @@ func Demo() {
 		jim.contactInfo.zipCode,
 		jim.zipCode)
 
+	// go will automatically convert jim to a pointer
 	// jimPtr := &jim
 	// jimPtr.updateName("jimmyyyyyyyyyyyy")
+
 	jim.updateName("Jjjjjjjjjjjimmmmyyyyyyyyyyyyyyyyyy")
 	jim.print()
 

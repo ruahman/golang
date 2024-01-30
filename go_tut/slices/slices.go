@@ -2,6 +2,12 @@ package slices
 
 import "fmt"
 
+// slices are refrence types, so they contain a pointer to an underlying array.
+// other refrence types are maps, functions, channels, pointers
+func updateSlice(s []string) {
+	s[0] = "Bye"
+}
+
 func Demo() {
 	fmt.Println("------------ slices demo -------------------")
 	// Arrays are fixed, while slices can grow
@@ -32,6 +38,9 @@ func Demo() {
 	for _, card := range cards {
 		fmt.Println(card)
 	}
+
+	updateSlice(cards)
+	fmt.Println("update slice: ", cards)
 
 	fmt.Println("ranges: ", cards[2:5])
 
