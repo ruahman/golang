@@ -5,26 +5,33 @@ package maps
 import "fmt"
 
 func printMap(c map[string]string) {
+	// this is how you iterate over a map
+	// we can't iterate a struct. We can iterate a map
 	for key, val := range c {
 		fmt.Println(key, val)
 	}
 }
 
-func Demo() {
+func Run() {
 	fmt.Println("***** map demo *****")
 
+	// all the keys must be of the same type and all the values must be of the same type.
+	// unlike structs which can have different types for each field
+	// map is a reference type, struct is a value type
+	// maps can grow dynamically, structs can't
 	colors := map[string]string{
 		"red":    "#FF0000",
 		"green":  "#FA0234",
 		"purple": "#AF3GH",
 	}
 
-	// var colors2 map[string]string
-
 	colors3 := make(map[string]string)
+	// maps use square brackets to access values
+	// stucts use dot notation
 	colors3["yello"] = "hi"
 	colors3["test"] = "remove me"
 
+	// you can delete a key from a map
 	delete(colors3, "test")
 
 	fmt.Println(colors, colors3)
