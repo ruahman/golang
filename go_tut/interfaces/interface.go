@@ -9,18 +9,36 @@ import (
 // interfaces are data structures that are used to represent
 // a set of methods for a type of struct
 
+// all the types that have the following methods defined for it,
+// fit this interface,
+// for example if a type has the getGreating() method defined for it,
+// callifes for the bot interface
+
+// this is an interface type,
+// we can't create a value of this type.
+// we can only asign a value to this type that implements the methods defined for it.
+// interfaces are implicit, we don't have to explicitly say that a type implements an interface.
+// they just check if the methods are defined for the type.
+// if the type matches the methods defined for the interface, then it is
+// implicitly considered to implement the interface.
+// you don't need to explicitly say that a type implements an interface.
 type bot interface {
 	getGreating() string
 }
 
+// this is a value type,
+// we can create a value of this type.
 type englishBot struct{}
 
 type spanishBot struct{}
 
+// use the interface bot as parameter,
+// so that we can use any type that implements the bot interface
 func printGreating(b bot) {
 	fmt.Println(b.getGreating())
 }
 
+// receiver function for englishBot
 func (englishBot) getGreating() string {
 	return "Hi"
 }
