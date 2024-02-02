@@ -8,6 +8,12 @@ run:
 	@echo "Running..."
 	go run main.go
 
+.PHONY: check
+check:
+	@echo "Checking..."
+	go build -o /dev/null
+	go vet
+
 .PHONY: test
 test:
 ifdef p 
