@@ -5,6 +5,8 @@ import (
 	"reflect"
 ) // outside function have to start with var or const
 
+// var can be used outside a function
+
 // private variable
 var noPublica string = "noPublica"
 
@@ -14,12 +16,27 @@ var Publica string = "Publica"
 // constant
 const s string = "constant"
 
+// iota is a special type of constant that can be used to create a set of related constants
+const (
+	Monday = iota + 1
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
+	Sunday
+)
+
 // if you want to declare a variable outside a function you need to use var
 var (
 	xx int = 1
 	yy int = 3
 	zz int = 66
 )
+
+// rune is an alias for int32 and is equivalent to int32 in all ways.
+// It is used, by convention, to distinguish character values from integer values.
+var unicode rune = '😁'
 
 func Run() {
 	fmt.Println(xx, yy, zz)
@@ -30,6 +47,7 @@ func Run() {
 
 	// another way to declare a variable, type is inferred
 	// this tells go to figure out the type of the variable
+	// this can only be used inside a function
 	student2 := "Jane"
 	x := 2
 
