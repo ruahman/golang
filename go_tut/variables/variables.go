@@ -3,6 +3,7 @@ package variables // this defines the package name to variables
 import (
 	"fmt"
 	"reflect"
+	"strconv"
 ) // outside function have to start with var or const
 
 // var can be used outside a function
@@ -104,4 +105,12 @@ func Run() {
 
 	fmt.Printf("i has vale: %v and type: %T\n", i, i)
 	fmt.Printf("j has vale: %v and type: %T\n", j, j)
+
+	// conversion
+	xi := 10
+	var y int32 = 44
+	fmt.Println(xi + int(y))
+	z, _ := strconv.Atoi("100")
+	zi := strconv.Itoa(100)
+	fmt.Println(x, y, z, a, zi)
 }
