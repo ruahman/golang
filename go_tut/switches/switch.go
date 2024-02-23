@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func Demo() {
+func Run() {
 	fmt.Println("----- switches -----")
 
 	day := 4
@@ -55,5 +55,18 @@ func Demo() {
 		fmt.Println("Good afternoon.")
 	default:
 		fmt.Println("Good evening.")
+	}
+
+	// fallthrough, falls through to the next case
+	num := 1
+	switch num {
+	case 1:
+		fmt.Println("one")
+		fallthrough
+	case 2:
+		fmt.Println("two")
+		fallthrough
+	case 3:
+		fmt.Println("three")
 	}
 }
