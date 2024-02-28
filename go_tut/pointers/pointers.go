@@ -10,8 +10,17 @@ func zeroptr(iptr *int) {
 	*iptr = 0
 }
 
-func Demo() {
+func Run() {
 	fmt.Println("----- pointer demo -----")
+
+	var x int = 3
+	var px *int = &x
+	fmt.Println(x, px, *px)
+
+	var py *int = new(int)
+	*py = 3
+	fmt.Println(py, *py)
+
 	i := 1
 	fmt.Println(i)
 
