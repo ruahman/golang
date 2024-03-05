@@ -1,4 +1,5 @@
-package main // this means that this is an executable package
+// this means that this is an executable package, rather than a package
+package main
 
 import "fmt"
 
