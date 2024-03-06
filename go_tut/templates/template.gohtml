@@ -1,8 +1,13 @@
 Learn Golang!!!
-{{$data := .}}
 
-{{$data}}
+{{ $data := . }}
 
-{{range $index, $value := .}}
+{{cus "test"}}
+
+{{range $index, $value := $data.Slices}}
   {{$index}} {{$value}}
+{{end}}
+
+{{range $key, $value := $data.Maps}}
+  {{lower $key}} {{upper $value}}
 {{end}}
