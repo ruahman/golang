@@ -15,6 +15,23 @@ func (logWriter) Write(bs []byte) (int, error) {
 	return len(bs), nil
 }
 
+func handlerFunc(w http.ResponseWriter, _ *http.Request) {
+	fmt.Println("--- handlerFunc ---")
+	fmt.Fprint(w, "<h1>Hello, World!</h1>")
+}
+
+func RunHandlers() {
+	// 100:  information, still loading
+	// 200:  success, 200, 202
+	// 300:  redirection
+	// 400:  client error
+	// 500:  server error
+	http.HandleFunc("/", handlerFunc)
+	if err := http.ListenAndServe(":3000", nil); err != nil {
+		fmt.Println(err)
+	}
+}
+
 func Run() {
 	fmt.Println("--- http ---")
 	resp, err := http.Get("http://www.google.com")
