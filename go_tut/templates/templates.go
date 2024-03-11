@@ -31,8 +31,12 @@ func Run() {
 	type Data struct {
 		Slices []string
 		Maps   map[string]string
+		Test   bool
+		Name   string
+		Num1   int
+		Num2   int
 	}
-	var data Data = Data{slices, maps}
+	var data Data = Data{slices, maps, true, "Andy", 10, 20}
 
 	if err := t.ExecuteTemplate(os.Stdout, "template.gohtml", data); err != nil {
 		log.Fatal("Execute: ", err)

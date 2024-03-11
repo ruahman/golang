@@ -11,3 +11,24 @@ Learn Golang!!!
 {{range $key, $value := $data.Maps}}
   {{lower $key}} {{upper $value}}
 {{end}}
+
+{{if $data.Test}}
+  Test is true
+{{else}}
+  Test is false
+{{end}}
+
+{{if eq $data.Name "Diego"}}
+  Diego was here
+{{else if eq $data.Name "Andy"}}
+  Andy was here 
+{{else}}
+  I don't know this person 
+{{end}}
+
+{{if gt $data.Num1 $data.Num2}}
+  Num1 is greater than Num2
+{{else if lt $data.Num1 $data.Num2}}
+  Num1 is less than Num2
+{{end}}
+  
