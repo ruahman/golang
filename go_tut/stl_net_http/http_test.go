@@ -1,11 +1,15 @@
-package http
+package stl_net_http
 
 import "testing"
 
 func TestHttp(t *testing.T) {
-	Run()
+	Get()
 }
 
 func TestHandlers(t *testing.T) {
-	RunHandlers()
+	Handlers()
+}
+
+func TestStatic(t *testing.T) {
+	Static()
 }
