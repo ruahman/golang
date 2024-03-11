@@ -21,8 +21,8 @@ func handlerFunc(w http.ResponseWriter, _ *http.Request) {
 }
 
 func RunHandlers() {
-	// 100:  information
-	// 200:  success
+	// 100:  information, still loading
+	// 200:  success, 200, 202
 	// 300:  redirection
 	// 400:  client error
 	// 500:  server error
