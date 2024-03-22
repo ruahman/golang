@@ -39,6 +39,7 @@ func Demo() {
 		// so that it doesn't block the current thread
 		// go thread is a light weight thread
 		// they call also be called green threads
+		// the run on the same address space so access to shared memory should be synchronized
 
 		// add waitgroup counter to 1
 		wg.Add(1)

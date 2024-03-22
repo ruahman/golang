@@ -148,6 +148,12 @@ func myFunction2(x int, y string) (result int, txt1 string) {
 	return
 }
 
+// named return
+func namedReturn() (result int) {
+	result = 1
+	return
+}
+
 func Demo() {
 	fmt.Println("----- functions -----")
 
@@ -208,4 +214,7 @@ func Demo() {
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
+
+	nR := namedReturn()
+	fmt.Println("named return: ", nR)
 }
