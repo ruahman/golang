@@ -242,6 +242,139 @@ func Run() {
 	rangeChan()
 	selectChans()
 	syncMutex()
+
+	message := make(chan string)
+	go func() { message <- "ping" }()
+	msg := <-message
+	fmt.Println(msg)
+
+	// buffered channel, by default channels are unbuffered
+	// they will only accept a value if there is a corresponding receive for the value
+	// buffered channels can accept a limited number of values without a corresponding receive
+	message2 := make(chan string, 2)
+	message2 <- "buffered"
+	message2 <- "channel"
+	fmt.Println(<-message2)
+	fmt.Println(<-message2)
+
+	// blocking receive
+	worker := func(done chan bool) {
+		fmt.Println("working...")
+		time.Sleep(1 * time.Second)
+		done <- true
+	}
+
+	done := make(chan bool, 1)
+	go worker(done)
+	// this will block until we receive a value from the channel
+	<-done
+	fmt.Println("we are done")
+
+	// select
+	// select statement lets a goroutine wait on multiple communication operations
+	// A select blocks until one of its cases can run, then it executes that case.
+
+	c1 := make(chan string)
+	c2 := make(chan string)
+
+	go func() {
+		time.Sleep(1 * time.Second)
+		c1 <- "one"
+	}()
+	go func() {
+		time.Sleep(2 * time.Second)
+		c2 <- "two"
+	}()
+
+	// keep on looping until we have received all messages,
+	// waitgroup can also be used to wait for multiple go routines to finish
+	for i := 0; i < 2; i++ {
+		select {
+		case msg1 := <-c1:
+			fmt.Println("received", msg1)
+		case msg2 := <-c2:
+			fmt.Println("received", msg2)
+		}
+	}
+	fmt.Println("we have received all messages")
+
+	// closing channels
+	// closing a channel indicates that no more values will be sent on it
+	// this can be useful to communicate completion to the channel's receivers
+
+	jobs := make(chan int, 5)
+	done = make(chan bool)
+	go func() {
+		for {
+			j, more := <-jobs
+			if more {
+				fmt.Println("received job", j)
+			} else {
+				fmt.Println("received all jobs")
+				done <- true
+				return
+			}
+		}
+	}()
+
+	for j := 1; j <= 3; j++ {
+		jobs <- j
+		fmt.Println("sent job", j)
+	}
+	close(jobs)
+
+	fmt.Println("waiting for jobs to finish")
+	<-done
+	fmt.Println("all jobs are done")
+
+	// range over channels
+	queue := make(chan string, 2)
+	queue <- "one"
+	queue <- "two"
+	close(queue)
+	for elem := range queue {
+		fmt.Println("range: ", elem)
+	}
+
+	// timers, are for when you want to do something once in the future but
+	// you want to stop it if you change your mind
+	timer1 := time.NewTimer(2 * time.Second)
+
+	// timer comes with a channel that will be notified when the timer is done
+	<-timer1.C
+	fmt.Println("timer1 done")
+
+	// you can also stop the timer before it fires
+	timer2 := time.NewTimer(3 * time.Second)
+	go func() {
+		<-timer2.C
+		fmt.Println("timer2 done")
+	}()
+	// stop it before it fires
+	stop2 := timer2.Stop()
+
+	if stop2 {
+		fmt.Println("timer2 stopped")
+	}
+
+	// tickers are for when you want to do something repeatedly at regular intervals
+	ticker := time.NewTicker(500 * time.Millisecond)
+	done = make(chan bool)
+	go func() {
+		for {
+			select {
+			case <-done:
+				return
+			case t := <-ticker.C:
+				fmt.Println("tick at", t)
+			}
+		}
+	}()
+	time.Sleep(1600 * time.Millisecond)
+	ticker.Stop()
+	// tell go routine to stop
+	done <- true
+	fmt.Println("ticker stopped")
 }
 
 // the main function is a go routine
@@ -282,24 +415,35 @@ func RunLinks() {
 			checkLink(l, c)
 		}(l)
 	}
+}
 
-	// simple()
-	//
-	// buffered()
-	//
-	// rangeChan()
-	//
-	// closingChanel()
-	//
-	// waitGroup()
+// jobs is a channel that will receive work
+// results is a channel that will send the results of the work
+func worker(id int, jobs <-chan int, results chan<- int) {
+	for j := range jobs {
+		fmt.Println("worker", id, "processing job", j)
+		time.Sleep(1 * time.Second)
+		results <- j * 2
+	}
+}
 
-	// con := make(chan int)
-	// quit := make(chan int)
-	// go func() {
-	// 	for i := 0; i < 10; i++ {
-	// 		fmt.Println(<-c)
-	// 	}
-	// 	quit <- 0
-	// }()
-	// fibonacci(con, quit)
+func RunWorkerPool() {
+	const numJobs = 5
+	jobs := make(chan int, numJobs)
+	results := make(chan int, numJobs)
+
+	// create the workers, three in this case
+	for w := 1; w <= 3; w++ {
+		go worker(w, jobs, results)
+	}
+
+	for j := 1; j <= numJobs; j++ {
+		jobs <- j
+	}
+	close(jobs)
+
+	for a := 1; a <= numJobs; a++ {
+		<-results
+	}
+	fmt.Println("got all results")
 }

@@ -6,6 +6,10 @@ func TestLinks(t *testing.T) {
 	RunLinks()
 }
 
-func TestSimple(t *testing.T) {
+func TestChannels(t *testing.T) {
 	Run()
+}
+
+func TestWorkerPool(t *testing.T) {
+	RunWorkerPool()
 }

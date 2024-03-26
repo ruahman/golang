@@ -1,6 +1,11 @@
 package slices
 
-import "fmt"
+import (
+	"cmp"
+	"fmt"
+	"slices"
+	"sort"
+)
 
 // slices are refrence types, so they contain a pointer to an underlying array.
 // other refrence types are maps, functions, channels, pointers
@@ -154,4 +159,27 @@ func Demo() {
 	s2 := []int{1, 2, 3, 4, 5}
 	s2 = append(s2, 6, 7, 8, 9) // if it's bigger than the capacity it will create a new array
 	fmt.Println(s2)
+
+	// sorting slices
+	sortSlice := []string{"z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"}
+	fmt.Println(sortSlice)
+	sort.Strings(sortSlice)
+	fmt.Println(sortSlice)
+
+	type Person struct {
+		name string
+		age  int
+	}
+
+	people := []Person{
+		{name: "Jax", age: 37},
+		{name: "TJ", age: 25},
+		{name: "Alex", age: 72},
+	}
+
+	slices.SortFunc(people,
+		func(a, b Person) int {
+			return cmp.Compare(a.age, b.age)
+		})
+	fmt.Println(people)
 }

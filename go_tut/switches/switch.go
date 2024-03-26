@@ -28,7 +28,7 @@ func Run() {
 		fmt.Println("other")
 	}
 
-	// type switch
+	// type switch, when you want to find the type of an interface value
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:

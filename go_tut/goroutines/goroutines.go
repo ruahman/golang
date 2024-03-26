@@ -23,6 +23,12 @@ func sum(s []int, c chan int) {
 	c <- sum // send sum to c
 }
 
+func f(from string) {
+	for i := 0; i < 3; i++ {
+		fmt.Println(from, ":", i)
+	}
+}
+
 func Demo() {
 	fmt.Println("----- goroutines -----")
 
@@ -69,4 +75,20 @@ func Demo() {
 	x, y := <-c, <-c // receive from c
 
 	fmt.Println(x, y, x+y)
+
+	// run this synchronously
+	f("sychronous")
+
+	// run this as a goroutine
+	go f("goroutine")
+
+	go func(msg string) {
+		fmt.Println(msg)
+	}("going")
+	time.Sleep(1 * time.Second)
+	fmt.Println("done")
+}
+
+func RunStatefullGoroutines() {
+	// todo
 }

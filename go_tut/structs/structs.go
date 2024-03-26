@@ -53,6 +53,24 @@ func emp_func() {
 	fmt.Println(e)
 }
 
+// struct embedding
+type base struct {
+	num int
+}
+
+func (b base) describe() {
+	fmt.Println("describe base:", b.num)
+}
+
+type container struct {
+	base
+	str string
+}
+
+type describer interface {
+	describe()
+}
+
 func Demo() {
 	fmt.Println("---- structs -----")
 
@@ -114,4 +132,18 @@ func Demo() {
 	p := &v
 	p.X = 1e9 // this is fine even though p is a pointer
 	fmt.Println(v)
+
+	// struct embedding
+	co := container{base: base{num: 666}, str: "foobar"}
+	// you can access the base struct indirectly
+	fmt.Println("co.num:", co.num, "co.str:", co.str)
+	// or directly
+	fmt.Println("co.base.num:", co.base.num)
+
+	// you can call methods on the embedded struct
+	co.describe()
+
+	// can also calify for interfaces ment for the embedded struct
+	var d describer = co
+	d.describe()
 }

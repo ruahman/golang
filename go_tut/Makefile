@@ -20,6 +20,9 @@ ifdef p
 ifdef t 
 	@echo "...Testing $(p) $(t)"
 	go test -v ./$(p) -run $(t)
+else ifdef b
+	@echo "...Benchmarking $(p)"
+	go test -v ./$(p) -bench .
 else
 	@echo "...Testing $(t)"
 	go test -v ./$(p) 
