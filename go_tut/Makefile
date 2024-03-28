@@ -17,14 +17,14 @@ check:
 .PHONY: test
 test:
 ifdef p 
-ifdef t 
-	@echo "...Testing $(p) $(t)"
-	go test -v ./$(p) -run $(t)
+ifdef r 
+	@echo "...Testing $(p) $(r)"
+	go test -v ./$(p) -run $(r)
 else ifdef b
 	@echo "...Benchmarking $(p)"
 	go test -v ./$(p) -bench .
 else
-	@echo "...Testing $(t)"
+	@echo "...Testing $(p)"
 	go test -v ./$(p) 
 endif
 else
