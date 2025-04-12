@@ -15,3 +15,4 @@
 # vendor/
 ._*
 go_tut/.direnv
+go_tut/go_tut
