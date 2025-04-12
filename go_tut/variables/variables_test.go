@@ -5,5 +5,5 @@ import (
 )
 
 func TestDemo(t *testing.T) {
-	Run()
+	Variables()
 }

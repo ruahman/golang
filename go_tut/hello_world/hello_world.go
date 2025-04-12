@@ -25,6 +25,11 @@ func Hello(name string, language string) string {
 	return prefix + name
 }
 
+func HelloWorld() {
+	print("Hello from Go")
+	print("Bye")
+}
+
 func Run() {
 	// this is the sideffect of our app, the side effect is printing to the console
 	// it is not the domain of our app

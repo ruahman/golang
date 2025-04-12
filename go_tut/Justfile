@@ -1,0 +1,7 @@
+set positional-arguments
+
+run:
+  go run .
+
+test package:
+  go test -v ./$1

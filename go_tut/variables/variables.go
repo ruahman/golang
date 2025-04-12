@@ -39,7 +39,26 @@ var (
 // It is used, by convention, to distinguish character values from integer values.
 var unicode rune = '😁'
 
-func Run() {
+func Variables() {
+	var (
+		x1   int
+		name string
+	)
+	name = "diebo"
+	print(name, x1)
+
+	var z1 int = 2
+	print(z1)
+
+	const y1 = 2
+	print(y1)
+
+	var text1 string
+	text1 = "Hello!"
+	print(text1)
+
+	// otherText := "Bye!"
+
 	fmt.Println(xx, yy, zz)
 	fmt.Println(s)
 	fmt.Println(noPublica)

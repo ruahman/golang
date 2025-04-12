@@ -4,6 +4,10 @@ import "testing"
 
 // go test -v ./hello_world
 func TestHello(t *testing.T) {
+	t.Run("testing hello world", func(t *testing.T) {
+		HelloWorld()
+	})
+
 	// these are subtests
 	t.Run("saying hello to people", func(t *testing.T) {
 		got := Hello("Diego", "")

@@ -1,13 +1,13 @@
+// set your module with `go mod init <name-of-your-module>`
+
+// a module is just a go project
+
+// workspace -> modules -> packages
+
 // define name of our module and the go version we are using in this module
 module go_tut
 
 go 1.18
 
-require github.com/urfave/cli/v2 v2.25.7
-
-require (
-	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
-	github.com/mattn/go-sqlite3 v1.14.22 // indirect
-	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
-)
+// go mod tidy,  to tidy this up
+require github.com/mattn/go-sqlite3 v1.14.22

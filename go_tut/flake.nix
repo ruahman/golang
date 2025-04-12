@@ -17,20 +17,22 @@
       {
         devShells.default = with pkgs; mkShell {
           buildInputs = [
+            bashInteractive
+            bash-completion
             go
             gopls
             gofumpt
             golines
             gotools
             golangci-lint
-            zsh 
+            delve
           ];
           
 
           # Use zsh so it works with my neovim shell prompt
+          shell = pkgs.bashInteractive;
           shellHook = ''
-            export SHELL=$(which zsh)
-            exec $SHELL
+            echo "hello golang  "
           '';
         };
       }
