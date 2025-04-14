@@ -5,7 +5,7 @@
 // workspace -> modules -> packages
 
 // define name of our module and the go version we are using in this module
-module ruahman.org/go_tut
+module ruahman.org/golang/go_tut
 
 go 1.18
 

@@ -9,7 +9,7 @@ import (
 	"math"
 	"math/rand"
 
-	vars "ruahman.org/go_tut/variables"
+	vars "ruahman.org/golang/go_tut/variables"
 )
 
 // this is an exported function, a public Function
