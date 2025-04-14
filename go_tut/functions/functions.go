@@ -1,8 +1,38 @@
 package functions
 
+// functions can return more than one value
+
 import (
 	"fmt"
 )
+
+func save1() {
+}
+func save2(text string) {}
+
+func add(a int, b int) int {
+	if a > 100 {
+		// this will close your app
+		panic("this is too big")
+	}
+	return a + b
+}
+
+// pointers
+func increment(x *int) {
+	*x++
+}
+
+func addAndSubtract(a int, b int) (int, int) {
+	return a + b, a - b
+}
+
+func calculateTaxWithName(price float32) (state float32, city float32) {
+	// you can set the return variable here
+	state = price * 0.9
+	city = price * 0.5
+	return
+}
 
 // simple funtion with a return
 func newCard() string {
@@ -154,7 +184,10 @@ func namedReturn() (result int) {
 	return
 }
 
-func Demo() {
+func Functions() {
+	i := 1
+	increment(&i)
+
 	fmt.Println("----- functions -----")
 
 	card := newCard()

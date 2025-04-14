@@ -5,6 +5,10 @@ import (
 	"fmt"
 )
 
+func birthDay(age *int) {
+	*age = *age + 1
+}
+
 func zeroval(ival int) {
 	ival = 0
 }
@@ -42,8 +46,12 @@ func (w *Wallet) Withdraw(amount Bitcoin) error {
 	return nil
 }
 
-func Run() {
+func Pointers() {
 	fmt.Println("----- pointer demo -----")
+
+	myAge := 44
+	birthDay(&myAge)
+	fmt.Println("myAge: ", myAge)
 
 	var x int = 3
 	var px *int = &x

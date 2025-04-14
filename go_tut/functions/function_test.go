@@ -5,6 +5,6 @@ import (
 )
 
 // run "go test -v -run TestDemo ./variables"
-func TestDemo(t *testing.T) {
-	Demo()
+func TestFunctions(t *testing.T) {
+	Functions()
 }

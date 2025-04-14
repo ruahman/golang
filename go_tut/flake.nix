@@ -29,7 +29,6 @@
           ];
           
 
-          # Use zsh so it works with my neovim shell prompt
           shell = pkgs.bashInteractive;
           shellHook = ''
             echo "hello golang  "

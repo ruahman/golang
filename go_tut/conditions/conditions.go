@@ -1,8 +1,10 @@
 package conditions
 
+// just if, switch and for
+
 import "fmt"
 
-func Run() {
+func Conditions() {
 	fmt.Println("----- conditions -----")
 	x := 20
 	y := 18

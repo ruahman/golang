@@ -40,6 +40,11 @@ var (
 var unicode rune = '😁'
 
 func Variables() {
+	var message string = "hello from Go"
+	price := 34.4
+
+	println(message, price)
+
 	var (
 		x1   int
 		name string

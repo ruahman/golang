@@ -4,6 +4,6 @@ import (
 	"testing"
 )
 
-func TestDemo(t *testing.T) {
+func TestVariables(t *testing.T) {
 	Variables()
 }

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func Run() {
+func Switch() {
 	fmt.Println("----- switches -----")
 
 	day := 4

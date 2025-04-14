@@ -3,5 +3,12 @@ set positional-arguments
 run:
   go run .
 
+build: 
+  go build .
+
+check:
+	go build -o /dev/null
+	go vet
+
 test package:
   go test -v ./$1
