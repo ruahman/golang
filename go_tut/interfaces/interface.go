@@ -6,6 +6,30 @@ import (
 	"strings"
 )
 
+// an interface is a list fo methods
+type Course struct {
+	Title string
+}
+
+type Workshop struct {
+	Name string
+	Course
+}
+
+func (c Course) SignUp() bool {
+	return true
+}
+
+func (w Workshop) SignUp() bool {
+	return true
+}
+
+// an interface is just a list of methods
+// this is implicit
+type SignUpAble interface {
+	SignUp() bool
+}
+
 // interfaces are data structures that are used to represent
 // a set of methods for a type of struct
 
@@ -127,8 +151,16 @@ func describe(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 
-func Demo() {
+func Interface() {
 	fmt.Println("----- interfaces -----")
+
+	var array_of_interfaces [2]SignUpAble
+	array_of_interfaces[0] = Workshop{Name: "my workshop"}
+	array_of_interfaces[1] = Course{Title: "my course"}
+
+	for _, item := range array_of_interfaces {
+		fmt.Println(item)
+	}
 
 	eb := englishBot{}
 	sb := spanishBot{}

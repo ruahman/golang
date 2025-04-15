@@ -20,6 +20,17 @@ func NewUser(id int, name string) User {
 	return User{id, name}
 }
 
+type Workshop struct {
+	Title  string
+	Course // im embedding one type to another type
+}
+
+type Course struct {
+	Author string
+}
+
+// embedding
+
 // struct is a collection of fields
 
 // go doesn't have inheretance but it does have composition
@@ -98,6 +109,10 @@ func Struct() {
 	u3 := NewUser(33, "alice vila")
 	fmt.Println(u1, u2)
 	fmt.Println(u3.PrettyPrint())
+
+	// all the properties in Course are embeded in Workshop
+	ws := Workshop{Title: "test", Course: Course{Author: "diego"}}
+	fmt.Println(ws.Title, ws.Author, ws.Course.Author)
 
 	// with fields
 	alexWithFields := Person{
