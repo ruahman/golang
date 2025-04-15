@@ -6,7 +6,7 @@ import (
 )
 
 func TestTypes(t *testing.T) {
-	Demo()
+	Types()
 }
 
 func TestNewDeck(t *testing.T) {

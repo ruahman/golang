@@ -3,7 +3,7 @@ package structs
 import "testing"
 
 func TestDemo(t *testing.T) {
-	Demo()
+	Struct()
 }
 
 func TestPerimeter(t *testing.T) {

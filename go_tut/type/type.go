@@ -9,6 +9,33 @@ import (
 	"time"
 )
 
+// type alias
+type (
+	integer        = int
+	sliceOfStrings = []string
+)
+
+var x integer
+
+// type defenition
+// you can add methods to you type
+type (
+	json     map[string]string
+	distance float64
+)
+
+// you can add methods to types
+func (miles distance) ToKm() distance {
+	return distance(1.69 * miles)
+}
+
+func test() {
+	// distance is an actual type not an alias
+	d := distance(4.5)
+	k := d.ToKm()
+	fmt.Println(d, k)
+}
+
 type deck []string
 
 func newDeck() deck {
@@ -69,7 +96,8 @@ func (d deck) print() {
 	}
 }
 
-func Demo() {
+func Types() {
+	test()
 	cards := newDeck()
 	cards.print()
 	hand, remainingCards := deal(cards, 5)

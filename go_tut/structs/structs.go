@@ -3,7 +3,22 @@ package structs
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
+
+type User struct {
+	Id   int
+	Name string
+}
+
+func (u User) PrettyPrint() string {
+	return strconv.Itoa(u.Id) + ": " + u.Name
+}
+
+// we don't have constructors but you can make factory functions
+func NewUser(id int, name string) User {
+	return User{id, name}
+}
 
 // struct is a collection of fields
 
@@ -74,8 +89,15 @@ type describer interface {
 	describe()
 }
 
-func Demo() {
+func Struct() {
 	fmt.Println("---- structs -----")
+
+	var u1 User
+	u1 = User{Id: 1, Name: "diego vila"}
+	u2 := User{2, "anddy vila"}
+	u3 := NewUser(33, "alice vila")
+	fmt.Println(u1, u2)
+	fmt.Println(u3.PrettyPrint())
 
 	// with fields
 	alexWithFields := Person{
