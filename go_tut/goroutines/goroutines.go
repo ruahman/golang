@@ -1,5 +1,9 @@
 package goroutines
 
+// the go way of creating threads
+// goroutines are lightweight threads
+// the main function is a go routine
+
 import (
 	"fmt"
 	"sync"
@@ -29,7 +33,14 @@ func f(from string) {
 	}
 }
 
-func Demo() {
+func printMessage(text string) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(text)
+		time.Sleep(400 * time.Millisecond)
+	}
+}
+
+func Goroutines() {
 	fmt.Println("----- goroutines -----")
 
 	urls := []string{
@@ -87,6 +98,9 @@ func Demo() {
 	}("going")
 	time.Sleep(1 * time.Second)
 	fmt.Println("done")
+
+	go printMessage("Go is great")
+	printMessage("frontend masters")
 }
 
 func RunStatefullGoroutines() {
