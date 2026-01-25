@@ -20,7 +20,9 @@ func Conditions() {
 	}
 
 	time2 := 22
+
 	if time2 < 10 {
+
 		fmt.Println("Good morning")
 	} else if time2 < 20 {
 		fmt.Println("Good day")

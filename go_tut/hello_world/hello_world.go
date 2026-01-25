@@ -26,8 +26,8 @@ func Hello(name string, language string) string {
 }
 
 func HelloWorld() {
-	print("Hello from Go")
-	print("Bye")
+	fmt.Println("Hello from Go")
+	fmt.Println("Bye")
 }
 
 func Run() {

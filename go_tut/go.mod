@@ -7,7 +7,7 @@
 // define name of our module and the go version we are using in this module
 module ruahman.org/golang/go_tut
 
-go 1.18
+go 1.25.5
 
 // go mod tidy,  to tidy this up
 require github.com/mattn/go-sqlite3 v1.14.22

@@ -2,7 +2,7 @@ package constanats
 
 import "fmt"
 
-func Demo() {
+func constants() {
 	// sort of like enums
 	const (
 		dimandCard = iota

@@ -3,13 +3,13 @@ package hello_world
 import "testing"
 
 // go test -v ./hello_world
-func TestHello(t *testing.T) {
-	t.Run("testing hello world", func(t *testing.T) {
+func TestHelloWorld(t *testing.T) {
+	t.Run("say hello world", func(t *testing.T) {
 		HelloWorld()
 	})
 
 	// these are subtests
-	t.Run("saying hello to people", func(t *testing.T) {
+	t.Run("say hello to people", func(t *testing.T) {
 		got := Hello("Diego", "")
 		want := "Hello, Diego"
 		assertCorrectMessage(t, got, want)
@@ -21,24 +21,21 @@ func TestHello(t *testing.T) {
 		assertCorrectMessage(t, got, want)
 	})
 
-	t.Run("in Spanish", func(t *testing.T) {
+	t.Run("say hello in Spanish", func(t *testing.T) {
 		got := Hello("Diego", "Spanish")
 		want := "Hola, Diego"
 		assertCorrectMessage(t, got, want)
 	})
 
-	t.Run("in French", func(t *testing.T) {
+	t.Run("say hello in French", func(t *testing.T) {
 		got := Hello("Diego", "French")
 		want := "Bonjour, Diego"
 		assertCorrectMessage(t, got, want)
 	})
 }
 
+// my custom assert function / helper function
 func assertCorrectMessage(t testing.TB, got, want string) {
-	// for helper functions it is a good idea to accept testing.TB interface
-	// which is an interface that *testing.T and *testing.B both satisfy
-	// so that your helper function can be used in either tests or benchmarks
-
 	// t.Helper() is needed to tell the test suite that this method is a helper.
 	// By doing this when it fails the line number reported will be in our function call rather than inside our test helper
 	// this will help other developers track down problems easier
