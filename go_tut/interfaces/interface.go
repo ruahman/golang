@@ -6,7 +6,8 @@ import (
 	"strings"
 )
 
-// an interface is a list fo methods
+// an interface is a list of methods
+// named collections of method signatures
 type Course struct {
 	Title string
 }
@@ -151,6 +152,44 @@ func describe(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 
+type geometry interface {
+	area() float64
+	perim() float64
+}
+
+type rect struct {
+	width, height float64
+}
+type circle struct {
+	radius float64
+}
+
+func (r rect) area() float64 {
+	return r.width * r.height
+}
+func (r rect) perim() float64 {
+	return 2*r.width + 2*r.height
+}
+
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+func (c circle) perim() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+func measure(g geometry) {
+	fmt.Println(g)
+	fmt.Println(g.area())
+	fmt.Println(g.perim())
+}
+
+func detectCircle(g geometry) {
+	if c, ok := g.(circle); ok {
+		fmt.Println("circle with radius", c.radius)
+	}
+}
+
 func Interface() {
 	fmt.Println("----- interfaces -----")
 
@@ -198,4 +237,13 @@ func Interface() {
 	describe(i)
 	i = "hello"
 	describe(i)
+
+	r := rect{width: 3, height: 4}
+	c := circle{radius: 5}
+
+	measure(r)
+	measure(c)
+
+	detectCircle(r)
+	detectCircle(c)
 }

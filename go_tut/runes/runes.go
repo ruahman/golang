@@ -5,7 +5,7 @@ import (
 	"unicode/utf8"
 )
 
-func Demo() {
+func Runes() {
 	// in go charaters are called runes
 	rStr := "abcdefg"
 	fmt.Println("count the number of runes: ", utf8.RuneCountInString(rStr))

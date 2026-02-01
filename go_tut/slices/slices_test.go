@@ -7,7 +7,7 @@ import (
 
 // run "go test -v ./slices"
 func TestDemo(t *testing.T) {
-	Demo()
+	Slices()
 }
 
 func TestSum(t *testing.T) {

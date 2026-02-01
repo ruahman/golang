@@ -13,7 +13,7 @@ func updateSlice(s []string) {
 	s[0] = "Bye"
 }
 
-func Demo() {
+func Slices() {
 	fmt.Println("------------ slices demo -------------------")
 	// Arrays are fixed, while slices can grow
 

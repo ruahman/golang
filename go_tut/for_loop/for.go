@@ -2,6 +2,7 @@ package for_loop
 
 import "fmt"
 
+// for is go's only looping construct
 func for_loop() {
 
 	i := 1

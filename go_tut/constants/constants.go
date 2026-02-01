@@ -2,7 +2,17 @@ package constanats
 
 import "fmt"
 
-func constants() {
+// const can be declared outside
+const s string = "constant"
+
+func Constants() {
+	fmt.Println(s)
+
+	// const can also be declared in function
+	const n = 500000
+	const d = 3e20 / n
+	fmt.Println(d)
+
 	// sort of like enums
 	const (
 		dimandCard = iota

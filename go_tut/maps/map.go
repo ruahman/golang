@@ -53,7 +53,7 @@ func (d Dictionary) Add(word, definition string) error {
 	return nil
 }
 
-func Run() {
+func Maps() {
 	fmt.Println("***** map demo *****")
 
 	// all the keys must be of the same type and all the values must be of the same type.

@@ -5,7 +5,7 @@ import (
 )
 
 func TestDemo(t *testing.T) {
-	Run()
+	Maps()
 }
 
 func TestSearch(t *testing.T) {
