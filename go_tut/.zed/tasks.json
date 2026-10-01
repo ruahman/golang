@@ -1,0 +1,12 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+//
+// Example:
+[
+  {
+    "label": "Go Test current file",
+    "command": "go",
+    "args": ["test", "-v"],
+    "cwd": "$ZED_DIRNAME",
+    "reveal": "always",
+  },
+]
