@@ -10,4 +10,4 @@ check:
 	go vet
 
 test package:
-  go test -v ./{{package}}
+  go test -v {{package}}
